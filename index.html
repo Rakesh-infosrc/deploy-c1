@@ -1,10 +1,115 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Static Site Deployment</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Glassy Template</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Hello from Static Web Page!</h1>
-  <p>This site will be deployed to Vercel using CI/CD.</p>
+  <header class="nav">
+    <div class="nav-inner">
+      <h1 class="logo">Glassy<span>Site</span></h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="glass card hero-card">
+        <h2>Beautiful glassy design</h2>
+        <p>Minimal, modern glassmorphism UI template — ready to drop into your project.</p>
+        <div class="cta-row">
+          <a class="btn" href="#features">Get Started</a>
+          <a class="btn ghost" href="#pricing">Pricing</a>
+        </div>
+      </div>
+      <div class="hero-decor"></div>
+    </section>
+
+    <section id="features" class="section">
+      <h3 class="section-title">Features</h3>
+      <div class="grid">
+        <article class="glass card">
+          <h4>Responsive</h4>
+          <p>Looks great on mobile and desktop with a flexible layout.</p>
+        </article>
+        <article class="glass card">
+          <h4>CSS Only</h4>
+          <p>No JavaScript required — pure HTML & CSS for the look and feel.</p>
+        </article>
+        <article class="glass card">
+          <h4>Easy to Customize</h4>
+          <p>Change variables and colors to match your brand.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <h3 class="section-title">Pricing</h3>
+      <div class="grid">
+        <div class="glass card pricing">
+          <h4>Starter</h4>
+          <p class="price">Free</p>
+          <ul>
+            <li>1 project</li>
+            <li>Community support</li>
+          </ul>
+          <a class="btn" href="#contact">Choose</a>
+        </div>
+        <div class="glass card pricing popular">
+          <h4>Pro</h4>
+          <p class="price">₹499 / mo</p>
+          <ul>
+            <li>Unlimited projects</li>
+            <li>Email support</li>
+          </ul>
+          <a class="btn" href="#contact">Choose</a>
+        </div>
+        <div class="glass card pricing">
+          <h4>Enterprise</h4>
+          <p class="price">Contact</p>
+          <ul>
+            <li>Custom solutions</li>
+            <li>Priority support</li>
+          </ul>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h3 class="section-title">Contact</h3>
+      <div class="glass card contact-card">
+        <form>
+          <label>
+            <span>Name</span>
+            <input type="text" placeholder="Your name" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" placeholder="you@example.com" />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea placeholder="Say hello..."></textarea>
+          </label>
+          <div class="cta-row">
+            <button class="btn" type="submit">Send</button>
+            <button class="btn ghost" type="reset">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 GlassySite — Crafted with ♥</p>
+  </footer>
 </body>
 </html>
