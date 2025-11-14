@@ -10,28 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Pull latest code
+      # 1️⃣ Pull the latest code
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Node (for build step)
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      # 3️⃣ Install dependencies
-      - name: Install Dependencies
-        run: npm install
-
-      # 4️⃣ Build project
-      - name: Build Project
-        run: npm run build
-
-      # 5️⃣ Install Vercel CLI
+      # 2️⃣ Install Vercel CLI
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      # 6️⃣ Deploy to Vercel
-      - name: Deploy to Vercel
-        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+      # 3️⃣ Pull Vercel Project Settings (optional but recommended)
+      - name: Vercel Pull
+        run: vercel pull --yes --token=${{ secrets.VERCEL_TOKEN }} --environment=production
+
+      # 4️⃣ Build project using Vercel Build
+      - name: Vercel Build
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      # 5️⃣ Deploy the prebuilt project
+      - name: Deploy to Vercel (Prebuilt Output)
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
