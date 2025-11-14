@@ -1,19 +1,37 @@
-name: Deploy to Vercel
+name: Pull, Build and Deploy to Vercel
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
+      # 1️⃣ Pull latest code
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      # 2️⃣ Setup Node (for build step)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # 3️⃣ Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # 4️⃣ Build project
+      - name: Build Project
+        run: npm run build
+
+      # 5️⃣ Install Vercel CLI
       - name: Install Vercel CLI
         run: npm install -g vercel
 
+      # 6️⃣ Deploy to Vercel
       - name: Deploy to Vercel
         run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
